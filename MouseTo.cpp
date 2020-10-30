@@ -4,8 +4,8 @@
 
 MouseToClass::MouseToClass() {
   //set default values
-  screenResolutionX = 3840;  //4K UHD
-  screenResolutionY = 2160;  //4K UHD
+  screenResolutionX = 1112; // 3840;  //4K UHD
+  screenResolutionY = 834;  //2160;  //4K UHD
   correctionFactor = 1;
   jumpDistance = 10;  //this seems like a good balance between speed and accuracy
 }
@@ -42,8 +42,8 @@ boolean MouseToClass::move() {
   int moveToTargetY;
   if (homed == false) {
     //make sure it reaches 0,0 even in the worst case scenario of the cursor being at the bottom right corner
-    moveToTargetX = -screenResolutionX - 50;
-    moveToTargetY = -screenResolutionY - 50;
+    moveToTargetX = -screenResolutionX - 20;
+    moveToTargetY = -screenResolutionY - 20;
   }
   else {
     moveToTargetX = targetX;
@@ -118,3 +118,4 @@ void MouseToClass::home() {
 }
 
 MouseToClass MouseTo;  //This sets up a single global instance of the library so the class doesn't need to be declared in the user sketch and multiple instances are not necessary in this case.
+
