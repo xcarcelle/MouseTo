@@ -42,8 +42,8 @@ boolean MouseToClass::move() {
   int moveToTargetY;
   if (homed == false) {
     //make sure it reaches 0,0 even in the worst case scenario of the cursor being at the bottom right corner
-    moveToTargetX = -screenResolutionX - 20;
-    moveToTargetY = -screenResolutionY - 20;
+    moveToTargetX = -screenResolutionX - 10;
+    moveToTargetY = -screenResolutionY - 10;
   }
   else {
     moveToTargetX = targetX;
@@ -65,6 +65,7 @@ boolean MouseToClass::move() {
     }
   }
   else { //home or target position reached
+    //delay(500); // ios14+ timeout for upper 20px zone
     if (homed == false) {  //mouse is homed
       homed = true;
       positionX = 0;
